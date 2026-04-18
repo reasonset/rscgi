@@ -10,7 +10,8 @@ class RsCgi < CGI
   end
 
   def [](key)
-    @params[key]
+    val = @params[key]
+    Array === val ? val[0] : val.to_s
   end
 
   attr_reader :params
